@@ -1,4 +1,19 @@
-# Getting Started with Create React App
+# AnotherMeal
+
+Restaurant picker for the AnotherBrain team.
+
+## Gettings started
+
+1. Install the dependencies:
+   ```bash
+   yarn
+   ```
+1. Start the application:
+   ```bash
+   yarn start
+   ```
+
+# Development
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
