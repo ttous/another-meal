@@ -5,12 +5,25 @@ import { Restaurant } from "../../types";
 import { getRandom } from "../../utils";
 
 export const Picker: React.FC = () => {
-  const [restaurant, setRestaurant] = useState<Restaurant>();
+  const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant>();
+  const [restaurants, setRestaurants] = useState<Restaurant[]>(RESTAURANTS);
 
   const handleClick = () => {
-    const newRestaurant = getRandom(RESTAURANTS);
-    setRestaurant(newRestaurant);
+    const newRestaurant = getRandom(restaurants);
+    setSelectedRestaurant(newRestaurant);
   };
+
+  // TODO Add Autoomplete for origin
+  // TODO Add Autoomplete for meal
+  // TODO Add Autoomplete for diet
+  // TODO Add Autoomplete for tag
+  // TODO Add range Slider for speed
+  // TODO Add range Slider for price
+  // TODO Add Checkbox for terrace
+  // TODO Add Checkbox for toilets
+  // TODO Add Checkbox for take-away
+  // TODO Add Checkbox for eat-in
+  // TODO Add Checkbox for customer bowl
 
   return (
     <Box
@@ -37,7 +50,7 @@ export const Picker: React.FC = () => {
           variant="contained"
           onClick={handleClick}
         >
-          {"I'M HUNGRY"}
+          {"Random"}
         </Button>
         <Box
           sx={{
@@ -48,7 +61,7 @@ export const Picker: React.FC = () => {
           }}
         >
           <Typography variant="h3">
-            {restaurant ? restaurant.name : "?"}
+            {selectedRestaurant ? selectedRestaurant.name : "?"}
           </Typography>
         </Box>
       </Paper>
