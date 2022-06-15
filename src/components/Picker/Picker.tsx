@@ -1,8 +1,9 @@
-import { Box, Button, Paper, Typography } from "@mui/material";
-import React, { useState } from "react";
+import { Button, Paper } from "@mui/material";
+import { useState } from "react";
 import { RESTAURANTS } from "../../constants";
 import { Restaurant } from "../../types";
 import { getRandom } from "../../utils";
+import { RestaurantInfo } from "./RestaurantInfo";
 
 export const Picker: React.FC = () => {
   const [selectedRestaurant, setSelectedRestaurant] = useState<Restaurant>();
@@ -26,45 +27,20 @@ export const Picker: React.FC = () => {
   // TODO Add Checkbox for customer bowl
 
   return (
-    <Box
-      sx={{
-        width: "100vw",
-        height: "100vh",
+    <Paper
+      sx={(theme) => ({
+        width: "50vw",
+        height: "50vh",
         display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+        flexDirection: "column",
+        padding: theme.spacing(4),
+      })}
+      elevation={5}
     >
-      <Paper
-        sx={(theme) => ({
-          width: "50vw",
-          height: "50vh",
-          display: "flex",
-          flexDirection: "column",
-          padding: theme.spacing(4),
-        })}
-        elevation={5}
-      >
-        <Button
-          sx={{ margin: "auto" }}
-          variant="contained"
-          onClick={handleClick}
-        >
-          {"Random"}
-        </Button>
-        <Box
-          sx={{
-            height: "100%",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Typography variant="h3">
-            {selectedRestaurant ? selectedRestaurant.name : "?"}
-          </Typography>
-        </Box>
-      </Paper>
-    </Box>
+      <Button sx={{ margin: "auto" }} variant="contained" onClick={handleClick}>
+        {"Random"}
+      </Button>
+      {selectedRestaurant && <RestaurantInfo restaurant={selectedRestaurant} />}
+    </Paper>
   );
 };

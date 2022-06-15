@@ -1,13 +1,25 @@
-import CssBaseline from "@mui/material/CssBaseline";
+import { Box, CssBaseline } from "@mui/material";
 import React from "react";
-import { Picker } from "../Picker/Picker";
-import { ThemeProvider } from "../Theme/ThemeProvider";
+import { Header } from "../Header";
+import { Picker } from "../Picker";
+import { ThemeProvider } from "../Theme";
 
 export const App: React.FC = () => (
   <>
     <CssBaseline />
     <ThemeProvider>
-      <Picker />
+      <Box
+        sx={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Header />
+        <Picker />
+      </Box>
     </ThemeProvider>
   </>
 );
